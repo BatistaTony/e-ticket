@@ -1,91 +1,36 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
+"use client";
 
-const inter = Inter({ subsets: ['latin'] })
+import { Inter } from "next/font/google";
+import styles from "./page.module.css";
+const inter = Inter({ subsets: ["latin"] });
+import { useEffect } from "react";
+import { getData } from "@/service/getData";
+import Link from "next/link";
+import Button from "@/components/atomics/Button";
+import { CrazyTitle } from "@/components/atomics/Title";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <main className="flex flex-col items-center">
+      <CrazyTitle text="Atomic Design" />
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className="w-[100%] flex flex-row gap-5 justify-between">
+        <Link href={"/study-case/page-atomics"}>
+          <Button text="Atomics Components" className="bg-[#F9A826]" />
+        </Link>
+        <Link href={"/study-case/page-molecules"}>
+          <Button text="Molecules Components" className="bg-[#6EB5C0]" />
+        </Link>
+        <Link href={"/study-case/page-organisms"}>
+          <Button text="Organisms Components" className="bg-[#FF4D4F]" />
+        </Link>
+        <Link href={"/study-case/page-templates"}>
+          <Button text="Templates" className="bg-[#48BB78]" />
+        </Link>
+        <Link href={"/study-case/blog"}>
+          <Button text="Page" className="bg-[#9F7AEA]" />
+        </Link>
       </div>
     </main>
-  )
+  );
 }
